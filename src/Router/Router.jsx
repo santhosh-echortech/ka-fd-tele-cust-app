@@ -4,6 +4,8 @@ import ProtectedRoute from './ProtectedRoute/ProtectedRoute'
 import { AuthProvider } from '../Context/AuthContext/AuthContext'
 import { Context } from '../Context/Context'
 import MobileOnlyApp from '../Components/MobileOnlyApp/MobileOnlyApp'
+import Home from '../Pages/Home/Home'
+import Login from '../Pages/Login/Login'
 
 function Router() {
     return (
@@ -12,8 +14,8 @@ function Router() {
                 <MobileOnlyApp>
                     <BrowserRouter>
                         <Routes>
-                            <Route path="/" element={<></>} />
-                            <Route path="/Home" element={<ProtectedRoute> </ProtectedRoute>} />
+                            <Route path="/" element={<Login />} />
+                            <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
                         </Routes>
                     </BrowserRouter>
                 </MobileOnlyApp>
