@@ -1,18 +1,20 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute'
 import { AuthProvider } from '../Context/AuthContext/AuthContext'
+import { Context } from '../Context/Context'
 
 function Router() {
     return (
         <AuthProvider>
-            <Router>
-                <Routes>
-                    {/* <Route path="/" element={<Home />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/dashboard" element={<ProtectedRoute><Dashboard /> </ProtectedRoute>} /> */}
-                </Routes>
-            </Router>
+            <Context>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<></>} />
+                        <Route path="/Home" element={<ProtectedRoute> </ProtectedRoute>} />
+                    </Routes>
+                </BrowserRouter>
+            </Context>
         </AuthProvider>
     )
 }
